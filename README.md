@@ -200,6 +200,7 @@ Golden-tests в [golden_test.py](golden_test.py)
 
 name: Python CI
 
+```
 on:
   push:
     branches:
@@ -265,6 +266,7 @@ jobs:
 
       - name: Check code with mypy
         run: poetry run mypy *.py
+```
 
 - poetry -> управление зависимостями
 - coverage -> измеряет покрытие кода тестами
