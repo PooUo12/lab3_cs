@@ -1,0 +1,128 @@
+in_code: |-
+  input_str();
+input: |-
+  Kolya123
+output: |-
+  Kolya123
+proc_log: |
+  INFO     root:proc.py:149  tact: 1 acc: 0 memory_address: 0 PC: 0 inst: {'opcode': 'READ', 'address': 1000}
+  INFO     root:proc.py:149  tact: 2 acc: 0 memory_address: 1000 PC: 1 inst: {'opcode': 'READ', 'address': 1000}
+  INFO     root:proc.py:149  tact: 3 acc: 0 memory_address: 1 PC: 1 inst: {'opcode': 'WRITE', 'address': 1001}
+  INFO     root:proc.py:149  tact: 4 acc: 0 memory_address: 1001 PC: 2 inst: {'opcode': 'WRITE', 'address': 1001}
+  INFO     root:proc.py:149  tact: 5 acc: 0 memory_address: 2 PC: 2 inst: {'opcode': 'READ', 'address': 1001}
+  INFO     root:proc.py:149  tact: 6 acc: 0 memory_address: 1001 PC: 3 inst: {'opcode': 'READ', 'address': 1001}
+  INFO     root:proc.py:149  tact: 7 acc: 0 memory_address: 3 PC: 3 inst: {'opcode': 'SUB', 'address': 1000}
+  INFO     root:proc.py:149  tact: 8 acc: 0 memory_address: 1000 PC: 4 inst: {'opcode': 'SUB', 'address': 1000}
+  INFO     root:proc.py:149  tact: 9 acc: 0 memory_address: 4 PC: 4 inst: {'opcode': 'JMPZ', 'address': 998}
+  INFO     root:proc.py:149  tact: 10 acc: 0 memory_address: 4 PC: 6 inst: {'opcode': 'JMPZ', 'address': 998}
+  INFO     root:proc.py:149  tact: 11 acc: 0 memory_address: 6 PC: 6 inst: {'opcode': 'INPUT', 'address': 3}
+  INFO     root:proc.py:149  tact: 12 acc: 75 memory_address: 6 PC: 7 inst: {'opcode': 'INPUT', 'address': 3}
+  INFO     root:proc.py:149  tact: 13 acc: 75 memory_address: 7 PC: 7 inst: {'opcode': 'OUTPUT', 'address': 1}
+  INFO     root:proc.py:149  tact: 14 acc: 75 memory_address: 7 PC: 8 inst: {'opcode': 'OUTPUT', 'address': 1}
+  INFO     root:proc.py:149  tact: 15 acc: 75 memory_address: 8 PC: 8 inst: {'opcode': 'JUMP', 'address': -6}
+  INFO     root:proc.py:149  tact: 16 acc: 75 memory_address: 8 PC: 2 inst: {'opcode': 'JUMP', 'address': -6}
+  INFO     root:proc.py:149  tact: 17 acc: 75 memory_address: 2 PC: 2 inst: {'opcode': 'READ', 'address': 1001}
+  INFO     root:proc.py:149  tact: 18 acc: 0 memory_address: 1001 PC: 3 inst: {'opcode': 'READ', 'address': 1001}
+  INFO     root:proc.py:149  tact: 19 acc: 0 memory_address: 3 PC: 3 inst: {'opcode': 'SUB', 'address': 1000}
+  INFO     root:proc.py:149  tact: 20 acc: 0 memory_address: 1000 PC: 4 inst: {'opcode': 'SUB', 'address': 1000}
+  INFO     root:proc.py:149  tact: 21 acc: 0 memory_address: 4 PC: 4 inst: {'opcode': 'JMPZ', 'address': 998}
+  INFO     root:proc.py:149  tact: 22 acc: 0 memory_address: 4 PC: 6 inst: {'opcode': 'JMPZ', 'address': 998}
+  INFO     root:proc.py:149  tact: 23 acc: 0 memory_address: 6 PC: 6 inst: {'opcode': 'INPUT', 'address': 3}
+  INFO     root:proc.py:149  tact: 24 acc: 111 memory_address: 6 PC: 7 inst: {'opcode': 'INPUT', 'address': 3}
+  INFO     root:proc.py:149  tact: 25 acc: 111 memory_address: 7 PC: 7 inst: {'opcode': 'OUTPUT', 'address': 1}
+  INFO     root:proc.py:149  tact: 26 acc: 111 memory_address: 7 PC: 8 inst: {'opcode': 'OUTPUT', 'address': 1}
+  INFO     root:proc.py:149  tact: 27 acc: 111 memory_address: 8 PC: 8 inst: {'opcode': 'JUMP', 'address': -6}
+  INFO     root:proc.py:149  tact: 28 acc: 111 memory_address: 8 PC: 2 inst: {'opcode': 'JUMP', 'address': -6}
+  INFO     root:proc.py:149  tact: 29 acc: 111 memory_address: 2 PC: 2 inst: {'opcode': 'READ', 'address': 1001}
+  INFO     root:proc.py:149  tact: 30 acc: 0 memory_address: 1001 PC: 3 inst: {'opcode': 'READ', 'address': 1001}
+  INFO     root:proc.py:149  tact: 31 acc: 0 memory_address: 3 PC: 3 inst: {'opcode': 'SUB', 'address': 1000}
+  INFO     root:proc.py:149  tact: 32 acc: 0 memory_address: 1000 PC: 4 inst: {'opcode': 'SUB', 'address': 1000}
+  INFO     root:proc.py:149  tact: 33 acc: 0 memory_address: 4 PC: 4 inst: {'opcode': 'JMPZ', 'address': 998}
+  INFO     root:proc.py:149  tact: 34 acc: 0 memory_address: 4 PC: 6 inst: {'opcode': 'JMPZ', 'address': 998}
+  INFO     root:proc.py:149  tact: 35 acc: 0 memory_address: 6 PC: 6 inst: {'opcode': 'INPUT', 'address': 3}
+  INFO     root:proc.py:149  tact: 36 acc: 108 memory_address: 6 PC: 7 inst: {'opcode': 'INPUT', 'address': 3}
+  INFO     root:proc.py:149  tact: 37 acc: 108 memory_address: 7 PC: 7 inst: {'opcode': 'OUTPUT', 'address': 1}
+  INFO     root:proc.py:149  tact: 38 acc: 108 memory_address: 7 PC: 8 inst: {'opcode': 'OUTPUT', 'address': 1}
+  INFO     root:proc.py:149  tact: 39 acc: 108 memory_address: 8 PC: 8 inst: {'opcode': 'JUMP', 'address': -6}
+  INFO     root:proc.py:149  tact: 40 acc: 108 memory_address: 8 PC: 2 inst: {'opcode': 'JUMP', 'address': -6}
+  INFO     root:proc.py:149  tact: 41 acc: 108 memory_address: 2 PC: 2 inst: {'opcode': 'READ', 'address': 1001}
+  INFO     root:proc.py:149  tact: 42 acc: 0 memory_address: 1001 PC: 3 inst: {'opcode': 'READ', 'address': 1001}
+  INFO     root:proc.py:149  tact: 43 acc: 0 memory_address: 3 PC: 3 inst: {'opcode': 'SUB', 'address': 1000}
+  INFO     root:proc.py:149  tact: 44 acc: 0 memory_address: 1000 PC: 4 inst: {'opcode': 'SUB', 'address': 1000}
+  INFO     root:proc.py:149  tact: 45 acc: 0 memory_address: 4 PC: 4 inst: {'opcode': 'JMPZ', 'address': 998}
+  INFO     root:proc.py:149  tact: 46 acc: 0 memory_address: 4 PC: 6 inst: {'opcode': 'JMPZ', 'address': 998}
+  INFO     root:proc.py:149  tact: 47 acc: 0 memory_address: 6 PC: 6 inst: {'opcode': 'INPUT', 'address': 3}
+  INFO     root:proc.py:149  tact: 48 acc: 121 memory_address: 6 PC: 7 inst: {'opcode': 'INPUT', 'address': 3}
+  INFO     root:proc.py:149  tact: 49 acc: 121 memory_address: 7 PC: 7 inst: {'opcode': 'OUTPUT', 'address': 1}
+  INFO     root:proc.py:149  tact: 50 acc: 121 memory_address: 7 PC: 8 inst: {'opcode': 'OUTPUT', 'address': 1}
+  INFO     root:proc.py:149  tact: 51 acc: 121 memory_address: 8 PC: 8 inst: {'opcode': 'JUMP', 'address': -6}
+  INFO     root:proc.py:149  tact: 52 acc: 121 memory_address: 8 PC: 2 inst: {'opcode': 'JUMP', 'address': -6}
+  INFO     root:proc.py:149  tact: 53 acc: 121 memory_address: 2 PC: 2 inst: {'opcode': 'READ', 'address': 1001}
+  INFO     root:proc.py:149  tact: 54 acc: 0 memory_address: 1001 PC: 3 inst: {'opcode': 'READ', 'address': 1001}
+  INFO     root:proc.py:149  tact: 55 acc: 0 memory_address: 3 PC: 3 inst: {'opcode': 'SUB', 'address': 1000}
+  INFO     root:proc.py:149  tact: 56 acc: 0 memory_address: 1000 PC: 4 inst: {'opcode': 'SUB', 'address': 1000}
+  INFO     root:proc.py:149  tact: 57 acc: 0 memory_address: 4 PC: 4 inst: {'opcode': 'JMPZ', 'address': 998}
+  INFO     root:proc.py:149  tact: 58 acc: 0 memory_address: 4 PC: 6 inst: {'opcode': 'JMPZ', 'address': 998}
+  INFO     root:proc.py:149  tact: 59 acc: 0 memory_address: 6 PC: 6 inst: {'opcode': 'INPUT', 'address': 3}
+  INFO     root:proc.py:149  tact: 60 acc: 97 memory_address: 6 PC: 7 inst: {'opcode': 'INPUT', 'address': 3}
+  INFO     root:proc.py:149  tact: 61 acc: 97 memory_address: 7 PC: 7 inst: {'opcode': 'OUTPUT', 'address': 1}
+  INFO     root:proc.py:149  tact: 62 acc: 97 memory_address: 7 PC: 8 inst: {'opcode': 'OUTPUT', 'address': 1}
+  INFO     root:proc.py:149  tact: 63 acc: 97 memory_address: 8 PC: 8 inst: {'opcode': 'JUMP', 'address': -6}
+  INFO     root:proc.py:149  tact: 64 acc: 97 memory_address: 8 PC: 2 inst: {'opcode': 'JUMP', 'address': -6}
+  INFO     root:proc.py:149  tact: 65 acc: 97 memory_address: 2 PC: 2 inst: {'opcode': 'READ', 'address': 1001}
+  INFO     root:proc.py:149  tact: 66 acc: 0 memory_address: 1001 PC: 3 inst: {'opcode': 'READ', 'address': 1001}
+  INFO     root:proc.py:149  tact: 67 acc: 0 memory_address: 3 PC: 3 inst: {'opcode': 'SUB', 'address': 1000}
+  INFO     root:proc.py:149  tact: 68 acc: 0 memory_address: 1000 PC: 4 inst: {'opcode': 'SUB', 'address': 1000}
+  INFO     root:proc.py:149  tact: 69 acc: 0 memory_address: 4 PC: 4 inst: {'opcode': 'JMPZ', 'address': 998}
+  INFO     root:proc.py:149  tact: 70 acc: 0 memory_address: 4 PC: 6 inst: {'opcode': 'JMPZ', 'address': 998}
+  INFO     root:proc.py:149  tact: 71 acc: 0 memory_address: 6 PC: 6 inst: {'opcode': 'INPUT', 'address': 3}
+  INFO     root:proc.py:149  tact: 72 acc: 49 memory_address: 6 PC: 7 inst: {'opcode': 'INPUT', 'address': 3}
+  INFO     root:proc.py:149  tact: 73 acc: 49 memory_address: 7 PC: 7 inst: {'opcode': 'OUTPUT', 'address': 1}
+  INFO     root:proc.py:149  tact: 74 acc: 49 memory_address: 7 PC: 8 inst: {'opcode': 'OUTPUT', 'address': 1}
+  INFO     root:proc.py:149  tact: 75 acc: 49 memory_address: 8 PC: 8 inst: {'opcode': 'JUMP', 'address': -6}
+  INFO     root:proc.py:149  tact: 76 acc: 49 memory_address: 8 PC: 2 inst: {'opcode': 'JUMP', 'address': -6}
+  INFO     root:proc.py:149  tact: 77 acc: 49 memory_address: 2 PC: 2 inst: {'opcode': 'READ', 'address': 1001}
+  INFO     root:proc.py:149  tact: 78 acc: 0 memory_address: 1001 PC: 3 inst: {'opcode': 'READ', 'address': 1001}
+  INFO     root:proc.py:149  tact: 79 acc: 0 memory_address: 3 PC: 3 inst: {'opcode': 'SUB', 'address': 1000}
+  INFO     root:proc.py:149  tact: 80 acc: 0 memory_address: 1000 PC: 4 inst: {'opcode': 'SUB', 'address': 1000}
+  INFO     root:proc.py:149  tact: 81 acc: 0 memory_address: 4 PC: 4 inst: {'opcode': 'JMPZ', 'address': 998}
+  INFO     root:proc.py:149  tact: 82 acc: 0 memory_address: 4 PC: 6 inst: {'opcode': 'JMPZ', 'address': 998}
+  INFO     root:proc.py:149  tact: 83 acc: 0 memory_address: 6 PC: 6 inst: {'opcode': 'INPUT', 'address': 3}
+  INFO     root:proc.py:149  tact: 84 acc: 50 memory_address: 6 PC: 7 inst: {'opcode': 'INPUT', 'address': 3}
+  INFO     root:proc.py:149  tact: 85 acc: 50 memory_address: 7 PC: 7 inst: {'opcode': 'OUTPUT', 'address': 1}
+  INFO     root:proc.py:149  tact: 86 acc: 50 memory_address: 7 PC: 8 inst: {'opcode': 'OUTPUT', 'address': 1}
+  INFO     root:proc.py:149  tact: 87 acc: 50 memory_address: 8 PC: 8 inst: {'opcode': 'JUMP', 'address': -6}
+  INFO     root:proc.py:149  tact: 88 acc: 50 memory_address: 8 PC: 2 inst: {'opcode': 'JUMP', 'address': -6}
+  INFO     root:proc.py:149  tact: 89 acc: 50 memory_address: 2 PC: 2 inst: {'opcode': 'READ', 'address': 1001}
+  INFO     root:proc.py:149  tact: 90 acc: 0 memory_address: 1001 PC: 3 inst: {'opcode': 'READ', 'address': 1001}
+  INFO     root:proc.py:149  tact: 91 acc: 0 memory_address: 3 PC: 3 inst: {'opcode': 'SUB', 'address': 1000}
+  INFO     root:proc.py:149  tact: 92 acc: 0 memory_address: 1000 PC: 4 inst: {'opcode': 'SUB', 'address': 1000}
+  INFO     root:proc.py:149  tact: 93 acc: 0 memory_address: 4 PC: 4 inst: {'opcode': 'JMPZ', 'address': 998}
+  INFO     root:proc.py:149  tact: 94 acc: 0 memory_address: 4 PC: 6 inst: {'opcode': 'JMPZ', 'address': 998}
+  INFO     root:proc.py:149  tact: 95 acc: 0 memory_address: 6 PC: 6 inst: {'opcode': 'INPUT', 'address': 3}
+  INFO     root:proc.py:149  tact: 96 acc: 51 memory_address: 6 PC: 7 inst: {'opcode': 'INPUT', 'address': 3}
+  INFO     root:proc.py:149  tact: 97 acc: 51 memory_address: 7 PC: 7 inst: {'opcode': 'OUTPUT', 'address': 1}
+  INFO     root:proc.py:149  tact: 98 acc: 51 memory_address: 7 PC: 8 inst: {'opcode': 'OUTPUT', 'address': 1}
+  INFO     root:proc.py:149  tact: 99 acc: 51 memory_address: 8 PC: 8 inst: {'opcode': 'JUMP', 'address': -6}
+  INFO     root:proc.py:149  tact: 100 acc: 51 memory_address: 8 PC: 2 inst: {'opcode': 'JUMP', 'address': -6}
+  INFO     root:proc.py:149  tact: 101 acc: 51 memory_address: 2 PC: 2 inst: {'opcode': 'READ', 'address': 1001}
+  INFO     root:proc.py:149  tact: 102 acc: 0 memory_address: 1001 PC: 3 inst: {'opcode': 'READ', 'address': 1001}
+  INFO     root:proc.py:149  tact: 103 acc: 0 memory_address: 3 PC: 3 inst: {'opcode': 'SUB', 'address': 1000}
+  INFO     root:proc.py:149  tact: 104 acc: 0 memory_address: 1000 PC: 4 inst: {'opcode': 'SUB', 'address': 1000}
+  INFO     root:proc.py:149  tact: 105 acc: 0 memory_address: 4 PC: 4 inst: {'opcode': 'JMPZ', 'address': 998}
+  INFO     root:proc.py:149  tact: 106 acc: 0 memory_address: 4 PC: 6 inst: {'opcode': 'JMPZ', 'address': 998}
+  INFO     root:proc.py:149  tact: 107 acc: 0 memory_address: 6 PC: 6 inst: {'opcode': 'INPUT', 'address': 3}
+  INFO     root:proc.py:149  tact: 108 acc: 0 memory_address: 6 PC: 10 inst: {'opcode': 'INPUT', 'address': 3}
+  INFO     root:proc.py:149  tact: 109 acc: 0 memory_address: 10 PC: 10 inst: None
+out_code: |
+  {"value": {"opcode": "READ", "address": 1000}, "address": 0}
+  {"value": {"opcode": "WRITE", "address": 1001}, "address": 1}
+  {"value": {"opcode": "READ", "address": 1001}, "address": 2}
+  {"value": {"opcode": "SUB", "address": 1000}, "address": 3}
+  {"value": {"opcode": "JMPZ", "address": 998}, "address": 4}
+  {"value": {"opcode": "JUMP", "address": 4}, "address": 5}
+  {"value": {"opcode": "INPUT", "address": 3}, "address": 6}
+  {"value": {"opcode": "OUTPUT", "address": 1}, "address": 7}
+  {"value": {"opcode": "JUMP", "address": -6}, "address": 8}
+  {"value": 0, "address": 1000}
+  {"value": 1, "address": 999}

@@ -1,0 +1,47 @@
+in_code: |-
+  int x 10;
+  new x = ( x + 1 ) / ( 3 - 2 );
+  output_int(x);
+input: |
+output: |-
+  11
+proc_log: |
+  INFO     root:proc.py:149  tact: 1 acc: 0 memory_address: 0 PC: 0 inst: {'opcode': 'READ', 'address': 1000}
+  INFO     root:proc.py:149  tact: 2 acc: 10 memory_address: 1000 PC: 1 inst: {'opcode': 'READ', 'address': 1000}
+  INFO     root:proc.py:149  tact: 3 acc: 10 memory_address: 1 PC: 1 inst: {'opcode': 'ADD', 'address': 999}
+  INFO     root:proc.py:149  tact: 4 acc: 11 memory_address: 999 PC: 2 inst: {'opcode': 'ADD', 'address': 999}
+  INFO     root:proc.py:149  tact: 5 acc: 11 memory_address: 2 PC: 2 inst: {'opcode': 'WRITE', 'address': 1000}
+  INFO     root:proc.py:149  tact: 6 acc: 11 memory_address: 1000 PC: 3 inst: {'opcode': 'WRITE', 'address': 1000}
+  INFO     root:proc.py:149  tact: 7 acc: 11 memory_address: 3 PC: 3 inst: {'opcode': 'READ', 'address': 998}
+  INFO     root:proc.py:149  tact: 8 acc: 3 memory_address: 998 PC: 4 inst: {'opcode': 'READ', 'address': 998}
+  INFO     root:proc.py:149  tact: 9 acc: 3 memory_address: 4 PC: 4 inst: {'opcode': 'SUB', 'address': 997}
+  INFO     root:proc.py:149  tact: 10 acc: 1 memory_address: 997 PC: 5 inst: {'opcode': 'SUB', 'address': 997}
+  INFO     root:proc.py:149  tact: 11 acc: 1 memory_address: 5 PC: 5 inst: {'opcode': 'WRITE', 'address': 998}
+  INFO     root:proc.py:149  tact: 12 acc: 1 memory_address: 998 PC: 6 inst: {'opcode': 'WRITE', 'address': 998}
+  INFO     root:proc.py:149  tact: 13 acc: 1 memory_address: 6 PC: 6 inst: {'opcode': 'READ', 'address': 1000}
+  INFO     root:proc.py:149  tact: 14 acc: 11 memory_address: 1000 PC: 7 inst: {'opcode': 'READ', 'address': 1000}
+  INFO     root:proc.py:149  tact: 15 acc: 11 memory_address: 7 PC: 7 inst: {'opcode': 'DIV', 'address': 998}
+  INFO     root:proc.py:149  tact: 16 acc: 11 memory_address: 998 PC: 8 inst: {'opcode': 'DIV', 'address': 998}
+  INFO     root:proc.py:149  tact: 17 acc: 11 memory_address: 8 PC: 8 inst: {'opcode': 'WRITE', 'address': 1000}
+  INFO     root:proc.py:149  tact: 18 acc: 11 memory_address: 1000 PC: 9 inst: {'opcode': 'WRITE', 'address': 1000}
+  INFO     root:proc.py:149  tact: 19 acc: 11 memory_address: 9 PC: 9 inst: {'opcode': 'READ', 'address': 1000}
+  INFO     root:proc.py:149  tact: 20 acc: 11 memory_address: 1000 PC: 10 inst: {'opcode': 'READ', 'address': 1000}
+  INFO     root:proc.py:149  tact: 21 acc: 11 memory_address: 10 PC: 10 inst: {'opcode': 'OUTPUT', 'address': 0}
+  INFO     root:proc.py:149  tact: 22 acc: 11 memory_address: 10 PC: 11 inst: {'opcode': 'OUTPUT', 'address': 0}
+  INFO     root:proc.py:149  tact: 23 acc: 11 memory_address: 11 PC: 11 inst: None
+out_code: |
+  {"value": {"opcode": "READ", "address": 1000}, "address": 0}
+  {"value": {"opcode": "ADD", "address": 999}, "address": 1}
+  {"value": {"opcode": "WRITE", "address": 1000}, "address": 2}
+  {"value": {"opcode": "READ", "address": 998}, "address": 3}
+  {"value": {"opcode": "SUB", "address": 997}, "address": 4}
+  {"value": {"opcode": "WRITE", "address": 998}, "address": 5}
+  {"value": {"opcode": "READ", "address": 1000}, "address": 6}
+  {"value": {"opcode": "DIV", "address": 998}, "address": 7}
+  {"value": {"opcode": "WRITE", "address": 1000}, "address": 8}
+  {"value": {"opcode": "READ", "address": 1000}, "address": 9}
+  {"value": {"opcode": "OUTPUT", "address": 0}, "address": 10}
+  {"value": 10, "address": 1000}
+  {"value": 1, "address": 999}
+  {"value": 3, "address": 998}
+  {"value": 2, "address": 997}
