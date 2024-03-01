@@ -151,7 +151,7 @@ PS Это можно реализовать добавив пару новых �
 
 Реализован классом DataPath в proc.py
 
-![DataPath.png](.files/DataPath.png)
+![DataPath.png](files/DataPath.png)
 
 Регистры:
 - memory_address
@@ -167,7 +167,7 @@ PS Это можно реализовать добавив пару новых �
 
 Реализован классом ControlUnit в proc.py
 
-![ControlUnit.png](.files/ControlUnit.png)
+![ControlUnit.png](files/ControlUnit.png)
 
 Сигналы:
 - latch_PC
@@ -196,7 +196,80 @@ Golden-tests в [golden_test.py](golden_test.py)
 
 ## CI при помощи github actions
 
-[ci_settings](.github/workflows/python.yml)
+Использовал ruff и mypy
+
+name: Python CI
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - ".github/workflows/*"
+      - "/**"
+  pull_request:
+    branches:
+      - master
+    paths:
+      - ".github/workflows/*"
+      - "/**"
+
+defaults:
+  run:
+    working-directory: .
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry
+          poetry install
+      - name: Run tests and collect coverage
+        run: |
+          poetry run coverage run -m pytest .
+          poetry run coverage report -m
+        env:
+          CI: true
+
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry
+          poetry install
+      - name: Check code with Ruff
+        run: poetry run ruff check .
+
+      - name: Check code with mypy
+        run: poetry run mypy *.py
+
+- poetry -> управление зависимостями
+- coverage -> измеряет покрытие кода тестами
+- pytest -> само тестирование через golden тесты
+- ruff и mypy -> утилиты необходимые для задания
 
 ## Пример работы в любом из тестов или в папке files
 
