@@ -151,7 +151,7 @@ PS Это можно реализовать добавив пару новых �
 
 Реализован классом DataPath в proc.py
 
-![DataPath.png](.files/dataPath.png)
+![DataPath.png](.files/DataPath.png)
 
 Регистры:
 - memory_address
@@ -167,7 +167,7 @@ PS Это можно реализовать добавив пару новых �
 
 Реализован классом ControlUnit в proc.py
 
-![ControlUnit.png](.files/controlUnit.png)
+![ControlUnit.png](.files/ControlUnit.png)
 
 Сигналы:
 - latch_PC
