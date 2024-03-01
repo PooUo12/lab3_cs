@@ -1,2 +1,5 @@
-string s Hello World!;
-output_str(s);
+int x 10;
+while( x > 0 );
+new x = x - 1;
+output_int(x);
+endWhile;

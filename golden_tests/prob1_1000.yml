@@ -12025,35 +12025,35 @@ out_code: |
   {"value": {"opcode": "READ", "address": 1000}, "address": 2}
   {"value": {"opcode": "SUB", "address": 996}, "address": 3}
   {"value": {"opcode": "JMPS", "address": 995}, "address": 4}
-  {"value": {"opcode": "JUMP", "address": 8}, "address": 5}
   {"value": {"opcode": "READ", "address": 997}, "address": 6}
   {"value": {"opcode": "ADD", "address": 1000}, "address": 7}
   {"value": {"opcode": "WRITE", "address": 997}, "address": 8}
   {"value": {"opcode": "READ", "address": 1000}, "address": 9}
   {"value": {"opcode": "ADD", "address": 995}, "address": 10}
   {"value": {"opcode": "WRITE", "address": 1000}, "address": 11}
+  {"value": {"opcode": "JUMP", "address": 8}, "address": 5}
   {"value": {"opcode": "JUMP", "address": -10}, "address": 12}
   {"value": {"opcode": "READ", "address": 999}, "address": 13}
   {"value": {"opcode": "SUB", "address": 996}, "address": 14}
   {"value": {"opcode": "JMPS", "address": 994}, "address": 15}
-  {"value": {"opcode": "JUMP", "address": 8}, "address": 16}
   {"value": {"opcode": "READ", "address": 997}, "address": 17}
   {"value": {"opcode": "ADD", "address": 999}, "address": 18}
   {"value": {"opcode": "WRITE", "address": 997}, "address": 19}
   {"value": {"opcode": "READ", "address": 999}, "address": 20}
   {"value": {"opcode": "ADD", "address": 994}, "address": 21}
   {"value": {"opcode": "WRITE", "address": 999}, "address": 22}
+  {"value": {"opcode": "JUMP", "address": 8}, "address": 16}
   {"value": {"opcode": "JUMP", "address": -10}, "address": 23}
   {"value": {"opcode": "READ", "address": 998}, "address": 24}
   {"value": {"opcode": "SUB", "address": 996}, "address": 25}
   {"value": {"opcode": "JMPS", "address": 993}, "address": 26}
-  {"value": {"opcode": "JUMP", "address": 8}, "address": 27}
   {"value": {"opcode": "READ", "address": 997}, "address": 28}
   {"value": {"opcode": "SUB", "address": 998}, "address": 29}
   {"value": {"opcode": "WRITE", "address": 997}, "address": 30}
   {"value": {"opcode": "READ", "address": 998}, "address": 31}
   {"value": {"opcode": "ADD", "address": 993}, "address": 32}
   {"value": {"opcode": "WRITE", "address": 998}, "address": 33}
+  {"value": {"opcode": "JUMP", "address": 8}, "address": 27}
   {"value": {"opcode": "JUMP", "address": -10}, "address": 34}
   {"value": {"opcode": "READ", "address": 997}, "address": 35}
   {"value": {"opcode": "OUTPUT", "address": 0}, "address": 36}

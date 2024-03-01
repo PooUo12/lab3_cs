@@ -1,29 +1,13 @@
-{"value": {"opcode": "READ", "address": 987}, "address": 0}
-{"value": {"opcode": "WRITE", "address": 1001}, "address": 1}
-{"value": {"opcode": "READ", "address": 1001}, "address": 2}
-{"value": {"opcode": "SUB", "address": 1000}, "address": 3}
-{"value": {"opcode": "JMPS", "address": 985}, "address": 4}
-{"value": {"opcode": "JUMP", "address": 9}, "address": 5}
-{"value": {"opcode": "READ", "address": 1001}, "address": 6}
-{"value": {"opcode": "ADD", "address": 986}, "address": 7}
-{"value": {"opcode": "WRITE", "address": 1001}, "address": 8}
-{"value": {"opcode": "READADR", "address": 1000}, "address": 9}
-{"value": {"opcode": "SUB", "address": 1001}, "address": 10}
-{"value": {"opcode": "WRITEADR", "address": 0}, "address": 11}
-{"value": {"opcode": "OUTPUT", "address": 1}, "address": 12}
-{"value": {"opcode": "JUMP", "address": -11}, "address": 13}
-{"value": 12, "address": 1000}
-{"value": 72, "address": 999}
-{"value": 101, "address": 998}
-{"value": 108, "address": 997}
-{"value": 108, "address": 996}
-{"value": 111, "address": 995}
-{"value": 32, "address": 994}
-{"value": 87, "address": 993}
-{"value": 111, "address": 992}
-{"value": 114, "address": 991}
-{"value": 108, "address": 990}
-{"value": 100, "address": 989}
-{"value": 33, "address": 988}
-{"value": 0, "address": 987}
-{"value": 1, "address": 986}
+{"value": {"opcode": "READ", "address": 1000}, "address": 0}
+{"value": {"opcode": "SUB", "address": 999}, "address": 1}
+{"value": {"opcode": "JMPNSNZ", "address": 998}, "address": 2}
+{"value": {"opcode": "READ", "address": 1000}, "address": 4}
+{"value": {"opcode": "SUB", "address": 998}, "address": 5}
+{"value": {"opcode": "WRITE", "address": 1000}, "address": 6}
+{"value": {"opcode": "READ", "address": 1000}, "address": 7}
+{"value": {"opcode": "OUTPUT", "address": 0}, "address": 8}
+{"value": {"opcode": "JUMP", "address": 7}, "address": 3}
+{"value": {"opcode": "JUMP", "address": -9}, "address": 9}
+{"value": 10, "address": 1000}
+{"value": 0, "address": 999}
+{"value": 1, "address": 998}

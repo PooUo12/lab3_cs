@@ -18,10 +18,11 @@ current_inst_mem = 0
 mapping = {}
 
 
-def create_inst(opcode: str, var_addr: int) -> None:
+def create_inst(opcode: str, var_addr: int, inst_addr: int) -> None:
     global current_inst_mem
-    mach_code.append({"value": {"opcode": opcode, "address": var_addr}, "address": current_inst_mem})
-    current_inst_mem += 1
+    mach_code.append({"value": {"opcode": opcode, "address": var_addr}, "address": inst_addr})
+    if inst_addr == current_inst_mem:
+        current_inst_mem += 1
 
 
 def create_var(val: int, addr: int) -> dict[str, object]:
@@ -69,16 +70,16 @@ def parse_math(tokens: list[str]) -> int:
 
 
 def apply_operand(op: str, var2: int, var1: int) -> int:
-    create_inst(Opcode.READ.name, var1)
+    create_inst(Opcode.READ.name, var1, current_inst_mem)
     if op == "+":
-        create_inst(Opcode.ADD.name, var2)
+        create_inst(Opcode.ADD.name, var2, current_inst_mem)
     elif op == "-":
-        create_inst(Opcode.SUB.name, var2)
+        create_inst(Opcode.SUB.name, var2, current_inst_mem)
     elif op == "*":
-        create_inst(Opcode.MUL.name, var2)
+        create_inst(Opcode.MUL.name, var2, current_inst_mem)
     elif op == "/":
-        create_inst(Opcode.DIV.name, var2)
-    create_inst(Opcode.WRITE.name, var1)
+        create_inst(Opcode.DIV.name, var2, current_inst_mem)
+    create_inst(Opcode.WRITE.name, var1, current_inst_mem)
     return var1
 
 
@@ -93,22 +94,22 @@ def has_priority(op1: str, op2: str) -> bool:
 def inequality_sign_parse(sign: str) -> None:
     match sign:
         case ">":
-            create_inst(Opcode.JMPNSNZ.name, current_var_mem)
+            create_inst(Opcode.JMPNSNZ.name, current_var_mem, current_inst_mem)
         case ">=":
-            create_inst(Opcode.JMPNS.name, current_var_mem)
+            create_inst(Opcode.JMPNS.name, current_var_mem, current_inst_mem)
         case "<":
-            create_inst(Opcode.JMPS.name, current_var_mem)
+            create_inst(Opcode.JMPS.name, current_var_mem, current_inst_mem)
         case "<=":
-            create_inst(Opcode.JMPSZ.name, current_var_mem)
+            create_inst(Opcode.JMPSZ.name, current_var_mem, current_inst_mem)
         case "==":
-            create_inst(Opcode.JMPZ.name, current_var_mem)
+            create_inst(Opcode.JMPZ.name, current_var_mem, current_inst_mem)
         case "!=":
-            create_inst(Opcode.JMPNZ.name, current_var_mem)
+            create_inst(Opcode.JMPNZ.name, current_var_mem, current_inst_mem)
 
 
 def start_while(op_1: int, op_2: int, sign: str) -> None:
-    create_inst(Opcode.READ.name, op_1)
-    create_inst(Opcode.SUB.name, op_2)
+    create_inst(Opcode.READ.name, op_1, current_inst_mem)
+    create_inst(Opcode.SUB.name, op_2, current_inst_mem)
     inequality_sign_parse(sign)
 
 
@@ -120,8 +121,8 @@ def check_if_new_numbers_in_mapping(num1: str, num2: str) -> None:
 
 
 def translate(prog: list[str]) -> None:
-    count = 0
-    global current_var_mem
+    global current_inst_mem, current_var_mem
+    temp_inst_mem = 0
     for i in range(len(prog)):
         line = prog[i].split(" ")
         match line[0].split("(")[0]:
@@ -132,50 +133,47 @@ def translate(prog: list[str]) -> None:
             case "while":
                 check_if_new_numbers_in_mapping(str(line[1]), str(line[3]))
                 start_while(mapping[line[1]], mapping[line[3]], line[2])
-                count = 0
-                for j in range(i, len(prog)):
-                    count += 1
-                    if prog[j] == "endWhile":
-                        create_inst(Opcode.JUMP.name, count + 4)
-                        break
+                temp_inst_mem = current_inst_mem
+                current_inst_mem += 1
             case "endWhile":
-                create_inst(Opcode.JUMP.name, -(count + 6))
+                create_inst(Opcode.JUMP.name, (current_inst_mem - temp_inst_mem + 1), temp_inst_mem)
+                create_inst(Opcode.JUMP.name, (temp_inst_mem - current_inst_mem - 3), current_inst_mem)
             case "new":
                 mapping[line[1]] = parse_math(line[3:])
             case "input_str":
                 check_if_new_numbers_in_mapping(str(0), str(1))
-                create_inst(Opcode.READ.name, mapping[str(0)])
-                create_inst(Opcode.WRITE.name, IO_STRING_RESERVE)
+                create_inst(Opcode.READ.name, mapping[str(0)], current_inst_mem)
+                create_inst(Opcode.WRITE.name, IO_STRING_RESERVE, current_inst_mem)
                 start_while(IO_STRING_RESERVE, mapping[str(0)], "==")
-                create_inst(Opcode.JUMP.name, 4)
-                create_inst(Opcode.INPUT.name, STR_FLAG + 2)  # Если ввод кончился джампим из вайла
-                create_inst(Opcode.OUTPUT.name, STR_FLAG)
-                create_inst(Opcode.JUMP.name, -6)
+                create_inst(Opcode.JUMP.name, 4, current_inst_mem)
+                create_inst(Opcode.INPUT.name, STR_FLAG + 2, current_inst_mem)  # Если ввод кончился джампим из вайла
+                create_inst(Opcode.OUTPUT.name, STR_FLAG, current_inst_mem)
+                create_inst(Opcode.JUMP.name, -6, current_inst_mem)
             case "input_int":
                 var = line[0].split("(")[1].split(")")[0]
-                create_inst(Opcode.INPUT.name, INT_FLAG)
+                create_inst(Opcode.INPUT.name, INT_FLAG, current_inst_mem)
                 mapping[var] = current_var_mem
-                create_inst(Opcode.WRITE.name, mapping[var])
+                create_inst(Opcode.WRITE.name, mapping[var], current_inst_mem)
                 current_var_mem -= 1
             case "output_int":
                 var = line[0].split("(")[1].split(")")[0]
-                create_inst(Opcode.READ.name, mapping[var])
-                create_inst(Opcode.OUTPUT.name, INT_FLAG)
+                create_inst(Opcode.READ.name, mapping[var], current_inst_mem)
+                create_inst(Opcode.OUTPUT.name, INT_FLAG, current_inst_mem)
             case "output_str":
                 check_if_new_numbers_in_mapping(str(0), str(1))
                 var = line[0].split("(")[1].split(")")[0]
-                create_inst(Opcode.READ.name, mapping[str(0)])
-                create_inst(Opcode.WRITE.name, IO_STRING_RESERVE)
+                create_inst(Opcode.READ.name, mapping[str(0)], current_inst_mem)
+                create_inst(Opcode.WRITE.name, IO_STRING_RESERVE, current_inst_mem)
                 start_while(IO_STRING_RESERVE, mapping[var], "<")
-                create_inst(Opcode.JUMP.name, 9)
-                create_inst(Opcode.READ.name, IO_STRING_RESERVE)
-                create_inst(Opcode.ADD.name, mapping[str(1)])
-                create_inst(Opcode.WRITE.name, IO_STRING_RESERVE)
-                create_inst(Opcode.READADR.name, mapping[var])
-                create_inst(Opcode.SUB.name, IO_STRING_RESERVE)
-                create_inst(Opcode.WRITEADR.name, NO_ADDRESS)
-                create_inst(Opcode.OUTPUT.name, STR_FLAG)
-                create_inst(Opcode.JUMP.name, -11)
+                create_inst(Opcode.JUMP.name, 9, current_inst_mem)
+                create_inst(Opcode.READ.name, IO_STRING_RESERVE, current_inst_mem)
+                create_inst(Opcode.ADD.name, mapping[str(1)], current_inst_mem)
+                create_inst(Opcode.WRITE.name, IO_STRING_RESERVE, current_inst_mem)
+                create_inst(Opcode.READADR.name, mapping[var], current_inst_mem)
+                create_inst(Opcode.SUB.name, IO_STRING_RESERVE, current_inst_mem)
+                create_inst(Opcode.WRITEADR.name, NO_ADDRESS, current_inst_mem)
+                create_inst(Opcode.OUTPUT.name, STR_FLAG, current_inst_mem)
+                create_inst(Opcode.JUMP.name, -11, current_inst_mem)
 
 
 def main(code_file: Path, mem_file: Path) -> None:
