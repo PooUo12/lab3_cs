@@ -209,7 +209,7 @@ poetry run coverage run -m pytest .
 poetry run coverage report -m
 ```
 Покрытие тестами кода:
-[coverage.png](files/Coverage.png)
+![coverage.png](files/Coverage.png)
 
 Не покрытыми остались участки кода со сравнениями(использовались не все возможные знаки неравенств), 
 
