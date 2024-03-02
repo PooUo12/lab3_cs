@@ -32,15 +32,6 @@ class DataPath:
         self.input_flag = 0
         self.output_tokens = []
 
-    def clear(self) -> None:
-        self.program_counter = 0
-        self.acc = 0
-        self.memory_address = 0
-        self.zero_flag = 0
-        self.signed_flag = 0
-        self.input_flag = 0
-        self.output_tokens = []
-
     def get_zero_flag(self) -> int:
         return self.zero_flag
 
