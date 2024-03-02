@@ -313,7 +313,7 @@ jobs:
 
 ## Статистика
 
-| ФИО                        |      <алг>      | <LoC> | <code байт> | <code инстр.> | <инстр.> | <такт.> | alg | acc | harv | hw | instr | binary | stream | port | pstr | prob1 | 8bit |
+| ФИО                        |      <алг>      | <LoC> | <code байт> | <code инстр.> | <инстр.> | <такт.> | alg | acc | neum | hw | tick | struct | stream | port | pstr | prob1 | [4]char |
 |:---------------------------|:---------------:|:-----:|:-----------:|:-------------:|:--------:|:-------:|:---:|:---:|:----:|:--:|:-----:|:------:|:------:|:----:|:----:|:-----:|:----:|
 | Дорофеев Николай Павлович |     hello       |   2   |     -     |      14       |   138    |   301   | alg | acc | neum | hw | tick | struct | stream | port | pstr | prob1 | [4]char |
 | Дорофеев Николай Павлович |       cat       |   1   |     -     |      9       |   54    |   109   | alg | acc | neum | hw | tick | struct | stream | port | pstr | prob1 | [4]char |
